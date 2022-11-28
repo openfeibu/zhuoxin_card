@@ -29,4 +29,5 @@ class Employee extends BaseModel
     {
         return $this->belongsToMany(config('model.job.job.model'));
     }
+
 }

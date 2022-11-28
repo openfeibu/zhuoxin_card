@@ -4,14 +4,24 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\ResourceController as BaseController;
 use App\Models\Employee;
+use App\Services\EmployeeService;
 use Illuminate\Http\Request;
 use App\Repositories\Eloquent\EmployeeRepository;
 
 class EmployeeResourceController extends BaseController
 {
-    public function __construct(EmployeeRepository $employee)
+    /**
+     * @var EmployeeService
+     */
+    private $employeeService;
+
+    public function __construct(
+        EmployeeService  $employeeService,
+        EmployeeRepository $employee
+    )
     {
         parent::__construct();
+        $this->employeeService = $employeeService;
         $this->repository = $employee;
         $this->repository
             ->pushCriteria(\App\Repositories\Criteria\RequestCriteria::class);
@@ -49,6 +59,9 @@ class EmployeeResourceController extends BaseController
             $attributes = $request->all();
 
             $employee = $this->repository->create($attributes);
+            $employee->card_qrcode = $this->employeeService->generateQrCode($employee);
+
+            $employee->save();
 
             return $this->response->message(trans('messages.success.created', ['Module' => trans('employee.name')]))
                 ->code(0)
