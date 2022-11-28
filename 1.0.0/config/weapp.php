@@ -10,8 +10,7 @@ return [
     | 获取方法请参考 https://mp.weixin.qq.com/
     |
     */
-    //'appid' => env('WX_APPID', 'wx47c9ea5812bf9c33'),
-    'appid' => env('WX_APPID', 'wx06d5cea896e10366'),
+    'appid' => env('WX_APPID', 'wxe4b3053b4f91f4a9'),
 
     /*
     |--------------------------------------------------------------------------
@@ -22,8 +21,7 @@ return [
     | 获取方法请参考https://mp.weixin.qq.com/
     |
     */
-   // 'secret' => env('WX_SECRET', '37e3522d408569e9204a0127cbda059f'),
-    'secret' => env('WX_SECRET', '7108d0cd353e20426be758ad456c38a8'),
+    'secret' => env('WX_SECRET', '481a14a76ba06e6bb83396e28ff9f179'),
     /*
     |--------------------------------------------------------------------------
     | 小程序的官方接口
