@@ -41,7 +41,6 @@ class EmployeeController extends BaseController
         foreach ($data as $key => $item)
         {
             $item['image'] = config('app.image_url').'/image/original'.$item['image'];
-            $item['wechat_qrcode'] = config('app.image_url').'/image/original'.$item['wechat_qrcode'];
         }
         return $this->response
             ->success()
@@ -58,8 +57,9 @@ class EmployeeController extends BaseController
             throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException('数据不存在');
         }
         $employee->jobs;
-        $employee['image'] = config('app.image_url').'/image/original'.$employee['image'];
-        $employee['wechat_qrcode'] = config('app.image_url').'/image/original'.$employee['wechat_qrcode'];
+        $employee['image'] = handle_image_url($employee['image']);
+        $employee['wechat_qrcode'] = handle_image_url($employee['wechat_qrcode']);
+        $employee['card_qrcode'] = handle_image_url($employee['card_qrcode']);
 
         return $this->response->success()->data($employee->toArray())->json();
     }

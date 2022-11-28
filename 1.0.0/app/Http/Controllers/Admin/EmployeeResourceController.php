@@ -95,7 +95,9 @@ class EmployeeResourceController extends BaseController
             $attributes = $request->all();
 
             $employee->update($attributes);
+            $employee->card_qrcode = $this->employeeService->generateQrCode($employee);
 
+            $employee->save();
             return $this->response->message(trans('messages.success.updated', ['Module' => trans('employee.name')]))
                 ->code(0)
                 ->status('success')

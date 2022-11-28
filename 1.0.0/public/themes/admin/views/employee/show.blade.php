@@ -166,7 +166,7 @@
                     <div class="layui-form-item">
                         <label class="layui-form-label">{{ trans('app.order') }}</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="order" value="50" autocomplete="off"  class="layui-input" value="{{ $employee['order'] }}" >
+                            <input type="text" name="order" autocomplete="off"  class="layui-input" value="{{ $employee['order'] }}" >
                         </div>
                         <div class="layui-form-mid layui-word-aux">从小到大排序</div>
                     </div>

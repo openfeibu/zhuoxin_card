@@ -549,7 +549,7 @@ if (!function_exists('truncate')) {
 if (!function_exists('handle_image_url')) {
     function handle_image_url($image_url = '', $host = '')
     {
-        $host = $host ? $host : config('app.image_url') . '/';
+        $host = $host ? $host : config('app.image_url') . '/image/original';
         if (!empty($image_url) && strpos($image_url, 'http') === false) {
             $image_url = $host . $image_url;
         }
