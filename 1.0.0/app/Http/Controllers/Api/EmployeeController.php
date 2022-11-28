@@ -31,13 +31,18 @@ class EmployeeController extends BaseController
     public function employees(Request $request)
     {
         $job_category_id = $request->get('job_category_id');
+        $name = $request->get('name');
         $data = $this->employeeRepository
             ->when($job_category_id,function ($query) use($job_category_id){
                 $query->where('job_category_id',$job_category_id);
             })
+            ->when($name,function ($query) use($name){
+                $query->where('name','like','%'.$name.'%')->orWhere('en_name','like','%'.$name.'%');
+            })
             ->orderBy('order','asc')
             ->orderBy('id','desc')
             ->paginate(20,['id','name','image']);
+
         foreach ($data as $key => $item)
         {
             $item['image'] = config('app.image_url').'/image/original'.$item['image'];

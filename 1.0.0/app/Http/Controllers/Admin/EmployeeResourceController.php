@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\ResourceController as BaseController;
 use App\Models\Employee;
+use App\Repositories\Eloquent\JobCategoryRepository;
+use App\Repositories\Eloquent\JobRepository;
 use App\Services\EmployeeService;
 use Illuminate\Http\Request;
 use App\Repositories\Eloquent\EmployeeRepository;
+use Tree;
 
 class EmployeeResourceController extends BaseController
 {
@@ -14,15 +17,27 @@ class EmployeeResourceController extends BaseController
      * @var EmployeeService
      */
     private $employeeService;
+    /**
+     * @var JobRepository
+     */
+    private $jobRepository;
+    /**
+     * @var JobCategoryRepository
+     */
+    private $jobCategoryRepository;
 
     public function __construct(
         EmployeeService  $employeeService,
-        EmployeeRepository $employee
+        EmployeeRepository $employee,
+        JobRepository $jobRepository,
+        JobCategoryRepository $jobCategoryRepository
     )
     {
         parent::__construct();
         $this->employeeService = $employeeService;
         $this->repository = $employee;
+        $this->jobRepository = $jobRepository;
+        $this->jobCategoryRepository = $jobCategoryRepository;
         $this->repository
             ->pushCriteria(\App\Repositories\Criteria\RequestCriteria::class);
     }
@@ -47,10 +62,12 @@ class EmployeeResourceController extends BaseController
     public function create(Request $request)
     {
         $employee = $this->repository->newInstance([]);
+        $job_categories = $this->jobCategoryRepository->allJobCategories()->toArray();
+        $job_categories = Tree::getSameLevelWithSignTree($job_categories);
 
         return $this->response->title(trans('employee.name'))
             ->view('employee.create')
-            ->data(compact('employee'))
+            ->data(compact('employee','job_categories'))
             ->output();
     }
     public function store(Request $request)
@@ -83,9 +100,11 @@ class EmployeeResourceController extends BaseController
         } else {
             $view = 'employee.create';
         }
+        $job_categories = $this->jobCategoryRepository->allJobCategories()->toArray();
+        $job_categories = Tree::getSameLevelWithSignTree($job_categories);
 
         return $this->response->title(trans('app.view') . ' ' . trans('employee.name'))
-            ->data(compact('employee'))
+            ->data(compact('employee','job_categories'))
             ->view($view)
             ->output();
     }
