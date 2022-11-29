@@ -153,8 +153,8 @@ class WeAppUserLoginController extends BaseController
         $open_id = $user_info->openId;
         $user = User::where('open_id', $open_id)->first();
         if (isset($user) && $user) {
-            $user->avatar_url = isset($user_info->avatarUrl) && !empty($user_info->avatarUrl) ? $user_info->avatarUrl : $user->avatar_url;
-            $user->nickname = isset($user_info->nickName) && !empty($user_info->nickName) ? $user_info->nickName : $user->nickname;
+//            $user->avatar_url = isset($user_info->avatarUrl) && !empty($user_info->avatarUrl) ? $user_info->avatarUrl : $user->avatar_url;
+//            $user->nickname = isset($user_info->nickName) && !empty($user_info->nickName) ? $user_info->nickName : $user->nickname;
             $user->token = $token;
             $user->session_key = $session_key;
             $user->city =  isset($user_info->city) && !empty($user_info->city) ? $user_info->city : $user->city;
