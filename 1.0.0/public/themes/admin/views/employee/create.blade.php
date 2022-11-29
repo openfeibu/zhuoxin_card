@@ -5,7 +5,16 @@
         <div class="layui-col-md12">
             <div class="fb-main-table">
                 <form class="layui-form" action="{{guard_url('employee')}}" method="post" lay-filter="fb-form">
-
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">* {{ trans('job_category.name') }}</label>
+                        <div class="layui-input-inline">
+                            <select name="job_category_id" class="layui-select" lay-verify="required">
+                                @foreach($job_categories as $key => $job_category)
+                                    <option value="{{ $job_category['id'] }}" @if($job_category['parent_id'] == 0) disabled @endif>{{ $job_category['name'] }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
                     <div class="layui-form-item">
                         <label class="layui-form-label">* {{ trans('app.name') }}</label>
                         <div class="layui-input-inline">
@@ -64,6 +73,12 @@
                         <label class="layui-form-label">{{ trans('employee.label.image') }}</label>
                         {!! $employee->files('image')
                         ->url($employee->getUploadUrl('image'))
+                        ->uploader()!!}
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">{{ trans('employee.label.wechat_qrcode') }}</label>
+                        {!! $employee->files('wechat_qrcode')
+                        ->url($employee->getUploadUrl('wechat_qrcode'))
                         ->uploader()!!}
                     </div>
 

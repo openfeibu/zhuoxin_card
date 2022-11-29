@@ -9,7 +9,7 @@ use App\Repositories\Eloquent\JobRepository;
 use App\Services\EmployeeService;
 use Illuminate\Http\Request;
 use App\Repositories\Eloquent\EmployeeRepository;
-use Tree;
+use DB,Tree;
 
 class EmployeeResourceController extends BaseController
 {
@@ -72,6 +72,7 @@ class EmployeeResourceController extends BaseController
     }
     public function store(Request $request)
     {
+        DB::beginTransaction();
         try {
             $attributes = $request->all();
 
@@ -80,16 +81,21 @@ class EmployeeResourceController extends BaseController
 
             $employee->save();
 
+
+            DB::commit();
+
             return $this->response->message(trans('messages.success.created', ['Module' => trans('employee.name')]))
                 ->code(0)
                 ->status('success')
                 ->url(guard_url('employee'))
                 ->redirect();
         } catch (Exception $e) {
+
+            DB::rollBack();
             return $this->response->message($e->getMessage())
                 ->code(400)
                 ->status('error')
-                ->url(guard_url('employee'))
+                ->url(guard_url('employee/create'))
                 ->redirect();
         }
     }

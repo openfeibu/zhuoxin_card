@@ -103,8 +103,8 @@ class WeAppUserLoginController extends BaseController
      */
     public function getSessionKey($code)
     {
-        $appId = config("weapp.appid");
-        $appSecret = config("weapp.secret");
+        $appId = config('wechat.mini_program.default.app_id');
+        $appSecret = config('wechat.mini_program.default.secret');
         list($session_key, $openid) = array_values($this->getSessionKeyDirectly($appId, $appSecret, $code));
         return [
             'session_key' => $session_key,
@@ -128,7 +128,7 @@ class WeAppUserLoginController extends BaseController
             'grant_type' => 'authorization_code'
         ];
         $client = new Client();
-        $url = config('weapp.code2session_url') . http_build_query($requestParams);
+        $url = 'https://api.weixin.qq.com/sns/jscode2session?'. http_build_query($requestParams);
         $res = $client->request("GET", $url, [
             'timeout' => Constants::getNetworkTimeout()
         ]);
