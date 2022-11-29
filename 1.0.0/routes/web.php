@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/admin');
 });
 // Admin  routes  for user
 Route::group([
@@ -106,6 +106,7 @@ Route::group([
     'namespace' => 'Pc',
     'as' => 'pc.',
 ], function () {
+    return redirect('/admin');
     Auth::routes();
     Route::get('/user/login','Auth\LoginController@showLoginForm');
     Route::get('/','HomeController@home')->name('home');
