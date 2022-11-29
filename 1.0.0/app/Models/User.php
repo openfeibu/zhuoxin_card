@@ -23,6 +23,10 @@ class User extends AuthModel
      */
     protected $config = 'model.user.user.model';
 
+    public function getAvatarUrlAttribute($value)
+    {
+        return $value ?: default_avatar();
+    }
     public function findUserByToken($token)
     {
         return self::select('id','nickname','avatar_url','city','token','phone','open_id','session_key')->where('token', $token)->first();

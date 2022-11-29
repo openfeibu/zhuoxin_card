@@ -299,7 +299,7 @@ abstract class Response
      */
     public function getData()
     {
-        return is_array($this->data) ? $this->data : [];
+        return $this->data ?? [] ;
     }
 
     public function getTotalRow()

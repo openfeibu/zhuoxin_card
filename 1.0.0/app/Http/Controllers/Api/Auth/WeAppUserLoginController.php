@@ -27,9 +27,11 @@ class WeAppUserLoginController extends BaseController
         $user_info->avatarUrl = '';
         $user_info->nickName = '';
         $user_info->city = "";
-        //$this->storeUser($user_info, $token, $we_data['session_key']);
-        $user = app(User::class)->findUserByOpenId($user_info->openId);
+        $model = $this->storeUser($user_info, $token, $we_data['session_key']);
+        $model->nickname = '卓信'.$model['id'];
+        $model->save();
 
+        $user = app(User::class)->findUserByOpenId($user_info->openId);
         return $this->response->success()->data($user)->json();
 
     }
@@ -59,7 +61,7 @@ class WeAppUserLoginController extends BaseController
         $user_info->avatarUrl = $raw_data['avatarUrl'];
         $user_info->city = $raw_data['city'];
 
-        $this->storeUser($user_info, $token, $sessionKey);
+        $model = $this->storeUser($user_info, $token, $sessionKey);
 
         $user = app(User::class)->findUserByToken($token);
 
@@ -149,17 +151,16 @@ class WeAppUserLoginController extends BaseController
     public function storeUser($user_info, $token, $session_key)
     {
         $open_id = $user_info->openId;
-        $res = User::where('open_id', $open_id)->first();
-        if (isset($res) && $res) {
-            User::where('open_id', $open_id)->update([
-                'avatar_url' => isset($user_info->avatarUrl) && !empty($user_info->avatarUrl) ? $user_info->avatarUrl : $res->avatar_url,
-                'nickname' => isset($user_info->nickName) && !empty($user_info->nickName) ? $user_info->nickName : $res->nickname,
-                'token' => $token,
-                'session_key' => $session_key,
-                'city' => isset($user_info->city) && !empty($user_info->city) ? $user_info->city : $res->city,
-            ]);
+        $user = User::where('open_id', $open_id)->first();
+        if (isset($user) && $user) {
+            $user->avatar_url = isset($user_info->avatarUrl) && !empty($user_info->avatarUrl) ? $user_info->avatarUrl : $user->avatar_url;
+            $user->nickname = isset($user_info->nickName) && !empty($user_info->nickName) ? $user_info->nickName : $user->nickname;
+            $user->token = $token;
+            $user->session_key = $session_key;
+            $user->city =  isset($user_info->city) && !empty($user_info->city) ? $user_info->city : $user->city;
+            $user->save();
         } else {
-            User::create([
+            $user = User::create([
                 'open_id' => $user_info->openId,
                 'avatar_url' => $user_info->avatarUrl,
                 'nickname' => $user_info->nickName,
@@ -168,6 +169,7 @@ class WeAppUserLoginController extends BaseController
                 'city' => $user_info->city,
             ]);
         }
+        return $user;
     }
 
 }

@@ -953,3 +953,8 @@ function hash_get($hash_name,$key_name){
     $arr = json_decode($str,true);
     return $arr;
 }
+
+function default_avatar(): string
+{
+    return 'https://apizhuoxincard.feibu.info/image/avatar.png';
+}
