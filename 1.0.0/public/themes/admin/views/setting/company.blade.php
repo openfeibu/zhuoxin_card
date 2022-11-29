@@ -18,9 +18,21 @@
                         </div>
                     </div>
                     <div class="layui-form-item">
+                        <label class="layui-form-label">英文地址</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="en_address" lay-verify="address" autocomplete="off" placeholder="请输入地址" class="layui-input" value="{{$company['en_address']}}">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
                         <label class="layui-form-label">电话</label>
                         <div class="layui-input-inline">
                             <input type="text" name="tel" lay-verify="tel" autocomplete="off" placeholder="请输入电话" class="layui-input" value="{{$company['tel']}}">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">手机号码</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="phone_number" lay-verify="tel" autocomplete="off" placeholder="请输入手机号码" class="layui-input" value="{{$company['phone_number']}}">
                         </div>
                     </div>
                     <div class="layui-form-item">
@@ -29,12 +41,14 @@
                             <input type="text" name="email" lay-verify="email" autocomplete="off" placeholder="请输入邮箱" class="layui-input" value="{{$company['email']}}">
                         </div>
                     </div>
+                    <!--
                     <div class="layui-form-item">
                         <label class="layui-form-label">QQ</label>
                         <div class="layui-input-inline">
                             <input type="text" name="qq" lay-verify="qq" autocomplete="off" placeholder="请输入QQ" class="layui-input" value="{{$company['qq']}}">
                         </div>
                     </div>
+
                     <div class="layui-form-item">
                         <label class="layui-form-label">经纬度</label>
                         <div class="layui-input-inline">
@@ -54,7 +68,7 @@
 
                         <div id="map"></div>
                     </div>
-
+                    -->
                     <div class="layui-form-item">
                         <div class="layui-input-block">
                             <button class="layui-btn" lay-submit="" lay-filter="demo1">{{ trans('app.submit_now') }}</button>

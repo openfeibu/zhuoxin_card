@@ -28,55 +28,55 @@
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">* {{ trans('app.phone_number') }}</label>
+                        <label class="layui-form-label">{{ trans('app.phone_number') }}</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="phone_number" lay-verify="required" autocomplete="off" placeholder="请输入{{ trans('app.phone_number') }}"  class="layui-input" value="{{ $employee['phone_number'] }}" >
+                            <input type="text" name="phone_number" autocomplete="off" placeholder="请输入{{ trans('app.phone_number') }}"  class="layui-input" value="{{ $employee['phone_number'] }}" >
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">* {{ trans('app.tel') }}</label>
+                        <label class="layui-form-label">{{ trans('app.tel') }}</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="tel" lay-verify="required" autocomplete="off" placeholder="请输入{{ trans('app.tel') }}"  class="layui-input" value="{{ $employee['tel'] }}" >
+                            <input type="text" name="tel" autocomplete="off" placeholder="请输入{{ trans('app.tel') }}"  class="layui-input" value="{{ $employee['tel'] }}" >
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">* {{ trans('app.email') }}</label>
+                        <label class="layui-form-label">{{ trans('app.email') }}</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="email" lay-verify="required" autocomplete="off" placeholder="请输入{{ trans('app.email') }}"  class="layui-input" value="{{ $employee['email'] }}" >
+                            <input type="text" name="email" autocomplete="off" placeholder="请输入{{ trans('app.email') }}"  class="layui-input" value="{{ $employee['email'] }}" >
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">* {{ trans('app.address') }}</label>
+                        <label class="layui-form-label">{{ trans('app.address') }}</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="address" lay-verify="required" autocomplete="off" placeholder="请输入{{ trans('app.address') }}"  class="layui-input" value="{{ $employee['address'] }}" >
+                            <input type="text" name="address" autocomplete="off" placeholder="请输入{{ trans('app.address') }}"  class="layui-input" value="{{ $employee['address'] }}" >
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">* 英文{{ trans('app.address') }}</label>
+                        <label class="layui-form-label">英文{{ trans('app.address') }}</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="en_address" lay-verify="required" autocomplete="off" placeholder="请输入英文{{ trans('app.address') }}"  class="layui-input" value="{{ $employee['en_address'] }}" >
+                            <input type="text" name="en_address" autocomplete="off" placeholder="请输入英文{{ trans('app.address') }}"  class="layui-input" value="{{ $employee['en_address'] }}" >
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">* {{ trans('app.intro') }}</label>
+                        <label class="layui-form-label">{{ trans('app.intro') }}</label>
                         <div class="layui-input-inline">
                             <textarea name="intro"  placeholder="请输入{{  trans('employee.label.intro') }}"  class="layui-textarea">{{ $employee['intro'] }}</textarea>
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">* 英文{{ trans('app.intro') }}</label>
+                        <label class="layui-form-label">英文{{ trans('app.intro') }}</label>
                         <div class="layui-input-inline">
                             <textarea name="en_intro"  placeholder="请输入英文{{  trans('employee.label.intro') }}"  class="layui-textarea">{{ $employee['en_intro'] }}</textarea>
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">{{ trans('employee.label.image') }}</label>
+                        <label class="layui-form-label">* {{ trans('employee.label.image') }}</label>
                         {!! $employee->files('image')
                         ->url($employee->getUploadUrl('image'))
                         ->uploader()!!}
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">{{ trans('employee.label.wechat_qrcode') }}</label>
+                        <label class="layui-form-label">* {{ trans('employee.label.wechat_qrcode') }}</label>
                         {!! $employee->files('wechat_qrcode')
                         ->url($employee->getUploadUrl('wechat_qrcode'))
                         ->uploader()!!}
