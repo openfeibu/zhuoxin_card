@@ -58,7 +58,8 @@ class EmployeeService{
 // $response 成功时为 EasyWeChat\Kernel\Http\StreamResponse 实例，失败为数组或你指定的 API 返回类型
 
 // 保存小程序码到文件
-            $directory = storage_path('uploads').DIRECTORY_SEPARATOR.$this->file_folder.DIRECTORY_SEPARATOR.$employee['id'];
+            $directory = DIRECTORY_SEPARATOR.$this->file_folder.DIRECTORY_SEPARATOR.$employee['id'];
+
             if (!Storage::exists($directory)) {
                 Storage::makeDirectory($directory, 0755, true);
             }

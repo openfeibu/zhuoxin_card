@@ -94,10 +94,10 @@ return [
      */
      'mini_program' => [
         'default' => [
-            'app_id'  => env('WECHAT_MINI_PROGRAM_APPID', 'wx06d5cea896e10366'),
-            'secret'  => env('WECHAT_MINI_PROGRAM_SECRET', '7108d0cd353e20426be758ad456c38a8'),
-            'token'   => env('WECHAT_MINI_PROGRAM_TOKEN', 'lingpaoxiaoyuan'),
-            'aes_key' => env('WECHAT_MINI_PROGRAM_AES_KEY', 'RVD07oK0rhfzNIB0govh0faaeI2AnNRI7IawvmA1JKI'),
+            'app_id'  => env('WECHAT_MINI_PROGRAM_APPID', 'wxe4b3053b4f91f4a9'),
+            'secret'  => env('WECHAT_MINI_PROGRAM_SECRET', '481a14a76ba06e6bb83396e28ff9f179'),
+            'token'   => env('WECHAT_MINI_PROGRAM_TOKEN', ''),
+            'aes_key' => env('WECHAT_MINI_PROGRAM_AES_KEY', ''),
             'template_id' => [
                 'accept_order' => 'krSNfQd5xJgEMJqONavnC-PG6v4K5jJuWJJKrV0hjo0', //接单
                 'status_change' => 'trVH8wAl_rx4xN2l5vUi2pT7ci3-silpi3zHVd7dkhA', //状态改变
