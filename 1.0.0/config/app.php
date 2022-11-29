@@ -53,7 +53,7 @@ return [
     */
 
     'url' => env('APP_URL', 'http://localhost'),
-    'image_url' => 'http://api_zhuoxin_card.g.com',
+    'image_url' => 'http://apizhuoxincard.feibu.info',
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
