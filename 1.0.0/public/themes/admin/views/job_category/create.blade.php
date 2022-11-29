@@ -9,7 +9,6 @@
                         <label class="layui-form-label">上级</label>
                         <div class="layui-input-inline">
                             <select name="parent_id" class="layui-select">
-                                <option value="0">顶级</option>
                                 @foreach($tops as $key => $top)
                                     <option value="{{ $top->id }}">{{ $top->name }}</option>
                                 @endforeach
@@ -17,9 +16,9 @@
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">* {{ trans('job_category.label.name') }}</label>
+                        <label class="layui-form-label">* {{ trans('app.name') }}</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="name" lay-verify="required" autocomplete="off" placeholder="请输入{{ trans('job_category.label.name') }}" class="layui-input" >
+                            <input type="text" name="name" lay-verify="required" autocomplete="off" placeholder="请输入{{ trans('app.name') }}" class="layui-input" >
                         </div>
                     </div>
                     <div class="layui-form-item">

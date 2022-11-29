@@ -40,7 +40,7 @@
             ,cols: [[
                 {checkbox: true, fixed: true}
                 ,{field:'id',title:'ID', width:80, sort: true}
-                ,{field:'name',title:'{{ trans('nav.label.name') }}'}
+                ,{field:'name',title:'{{ trans('app.name') }}'}
                 ,{field:'order',title:'{{ trans('app.order') }}', width:100,edit:'text'}
                 ,{field:'score',title:'{{ trans('app.actions') }}', width:200, align: 'right',fixed: 'right',toolbar:'#barDemo'}
             ]]

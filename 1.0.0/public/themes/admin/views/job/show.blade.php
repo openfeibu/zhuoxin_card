@@ -6,15 +6,15 @@
             <div class="fb-main-table">
                 <form class="layui-form" action="{{guard_url('job/'.$job->id)}}" method="post" method="post" lay-filter="fb-form">
                     <div class="layui-form-item">
-                        <label class="layui-form-label">{{ trans('app.name') }}</label>
+                        <label class="layui-form-label">* {{ trans('app.name') }}</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="name" autocomplete="off" placeholder="请输入{{ trans('app.name') }}" class="layui-input" value="{{$job['name']}}">
+                            <input type="text" name="name" lay-verify="required" autocomplete="off" placeholder="请输入{{ trans('app.name') }}" class="layui-input" value="{{$job['name']}}">
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">{{ trans('app.en_name') }}</label>
+                        <label class="layui-form-label">* {{ trans('app.en_name') }}</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="en_name" autocomplete="off" placeholder="请输入{{ trans('app.en_name') }}" class="layui-input" value="{{$job['en_name']}}">
+                            <input type="text" name="en_name" lay-verify="required" autocomplete="off" placeholder="请输入{{ trans('app.en_name') }}" class="layui-input" value="{{$job['en_name']}}">
                         </div>
                     </div>
                     <div class="layui-form-item">

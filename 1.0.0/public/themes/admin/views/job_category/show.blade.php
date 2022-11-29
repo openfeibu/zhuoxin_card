@@ -18,9 +18,9 @@
                     </div>
 
                     <div class="layui-form-item">
-                        <label class="layui-form-label">{{ trans('app.name') }}</label>
+                        <label class="layui-form-label">* {{ trans('app.name') }}</label>
                         <div class="layui-input-inline">
-                            <input type="text" name="name" autocomplete="off" placeholder="请输入{{ trans('app.name') }}" class="layui-input" value="{{$job_category['name']}}">
+                            <input type="text" name="name"  lay-verify="required" autocomplete="off" placeholder="请输入{{ trans('app.name') }}" class="layui-input" value="{{$job_category['name']}}">
                         </div>
                     </div>
 
