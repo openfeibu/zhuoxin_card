@@ -19,11 +19,12 @@ Route::group([
     'namespace' => 'Admin',
     'prefix' => 'admin'
 ], function () {
+
     Auth::routes();
     Route::get('password', 'UserController@getPassword');
     Route::post('password', 'UserController@postPassword');
     Route::get('locked', 'UserController@locked');
-    Route::get('/', 'ResourceController@home')->name('home');
+    Route::get('/', 'EmployeeResourceController@index')->name('home');
     Route::get('/dashboard', 'ResourceController@dashboard')->name('dashboard');
     Route::resource('banner', 'BannerResourceController');
     Route::post('/banner/destroyAll', 'BannerResourceController@destroyAll');

@@ -32,6 +32,7 @@ class ResourceController extends BaseController
      */
     public function home()
     {
+
         return $this->response->title(trans('app.admin.panel'))
             ->view('home')
             ->output();
