@@ -46,11 +46,7 @@ class UserController extends BaseController
         User::where('id',$user->id)->update([
             'phone' => $phone
         ]);
-        return response()->json([
-            'code' => '200',
-            'message' => '提交成功',
-            'data' => $phone
-        ]);
+        return $this->response->success()->data($phone)->json();
     }
     public function submitLocation(Request $request)
     {
@@ -66,12 +62,7 @@ class UserController extends BaseController
             'latitude' => $latitude,
             'city' => $data['regeocode']['addressComponent']['city'],
         ]);
-
-        return response()->json([
-            'code' => '200',
-            'message' => '提交成功',
-            'data' => $data['regeocode']['addressComponent']['city'],
-        ]);
+        return $this->response->success()->data( $data['regeocode']['addressComponent']['city'])->json();
     }
 
 
