@@ -956,5 +956,5 @@ function hash_get($hash_name,$key_name){
 
 function default_avatar(): string
 {
-    return 'https://apizhuoxincard.feibu.info/image/avatar.png';
+    return 'https://apizhuoxincard.feibu.info/images/avatar.png';
 }
