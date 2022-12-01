@@ -16,6 +16,15 @@
                         </div>
                     </div>
                     <div class="layui-form-item">
+                        <label class="layui-form-label">{{ trans("job.name") }}</label>
+                        <div class="layui-input-block">
+                            @foreach($jobs as $key => $job)
+                                <input type="checkbox" name="jobs[]" value="{{ $job->id }}" title="{{ $job->name }}" {{ !($employee->hasJob($job->id)) ? :'checked'}}>
+                            @endforeach
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
                         <label class="layui-form-label">* {{ trans('app.name') }}</label>
                         <div class="layui-input-inline">
                             <input type="text" name="name" lay-verify="required" autocomplete="off" placeholder="请输入{{ trans('app.name') }}"  class="layui-input" value="{{ $employee['name'] }}">

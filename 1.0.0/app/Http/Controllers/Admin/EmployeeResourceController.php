@@ -65,9 +65,10 @@ class EmployeeResourceController extends BaseController
         $job_categories = $this->jobCategoryRepository->allJobCategories()->toArray();
         $job_categories = Tree::getSameLevelWithSignTree($job_categories);
 
+        $jobs = $this->jobRepository->getALL();
         return $this->response->title(trans('employee.name'))
             ->view('employee.create')
-            ->data(compact('employee','job_categories'))
+            ->data(compact('employee','job_categories','jobs'))
             ->output();
     }
     public function store(Request $request)
@@ -80,8 +81,8 @@ class EmployeeResourceController extends BaseController
             $employee->card_qrcode = $this->employeeService->generateQrCode($employee);
 
             $employee->save();
-
-
+            $jobs = $request->get('jobs');
+            $employee->jobs()->sync($jobs);
             DB::commit();
 
             return $this->response->message(trans('messages.success.created', ['Module' => trans('employee.name')]))
@@ -108,9 +109,10 @@ class EmployeeResourceController extends BaseController
         }
         $job_categories = $this->jobCategoryRepository->allJobCategories()->toArray();
         $job_categories = Tree::getSameLevelWithSignTree($job_categories);
+        $jobs = $this->jobRepository->getALL();
 
         return $this->response->title(trans('app.view') . ' ' . trans('employee.name'))
-            ->data(compact('employee','job_categories'))
+            ->data(compact('employee','job_categories','jobs'))
             ->view($view)
             ->output();
     }
@@ -123,6 +125,10 @@ class EmployeeResourceController extends BaseController
             $employee->card_qrcode = $this->employeeService->generateQrCode($employee);
 
             $employee->save();
+
+            $jobs = $request->get('jobs');
+            $employee->jobs()->sync($jobs);
+
             return $this->response->message(trans('messages.success.updated', ['Module' => trans('employee.name')]))
                 ->code(0)
                 ->status('success')

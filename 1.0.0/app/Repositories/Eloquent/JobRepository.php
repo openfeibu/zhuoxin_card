@@ -28,4 +28,8 @@ class JobRepository extends BaseRepository implements JobRepositoryInterface
         return config('model.job.job.model');
     }
 
+    public function getALL()
+    {
+        return $this->orderBy('order','asc')->orderBy('id','asc')->get();
+    }
 }
