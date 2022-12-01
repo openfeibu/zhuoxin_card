@@ -24,7 +24,7 @@ Route::group([
     Route::get('password', 'UserController@getPassword');
     Route::post('password', 'UserController@postPassword');
     Route::get('locked', 'UserController@locked');
-    Route::get('/', 'EmployeeResourceController@index')->name('home');
+    Route::get('/', 'ResourceController@home')->name('home');
     Route::get('/dashboard', 'ResourceController@dashboard')->name('dashboard');
     Route::resource('banner', 'BannerResourceController');
     Route::post('/banner/destroyAll', 'BannerResourceController@destroyAll');
