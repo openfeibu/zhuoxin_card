@@ -14,7 +14,7 @@ class EmployeeService{
     private $file_folder = 'qrcode';
     protected $qrcode_url = 'https://apizhuoxincard.feibu.info?type=weapp';
     protected $file;
-    /*
+
     public function generateQrCode($employee)
     {
         $directory = '/'.$this->file_folder.'/'.$employee['id'];
@@ -31,7 +31,7 @@ class EmployeeService{
             $qrCode->setWriterByName('png');
             $qrCode->setSize($this->size);
             $qrCode->setMargin(1);
-            $qrCode->setLogoPath($logo_path,0.2,true);
+            //$qrCode->setLogoPath($logo_path,0.2,true);
             $qrCode->setLogoSize(60, 60);
             $qrCode->setEncoding('UTF-8');
             $qrCode->setRoundBlockSize(true);
@@ -40,8 +40,8 @@ class EmployeeService{
         }
         return '/'.$this->file_folder.'/'.$employee['id'].'/'.$image_name;
     }
-    */
 
+    /*
     public function generateQrCode($employee){
        // if(!$employee['card_qrcode']){
             $config = [
@@ -73,4 +73,5 @@ class EmployeeService{
 
        // }
     }
+    */
 }
