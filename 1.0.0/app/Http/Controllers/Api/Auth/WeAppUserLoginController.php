@@ -28,7 +28,7 @@ class WeAppUserLoginController extends BaseController
         $user_info->nickName = '';
         $user_info->city = "";
         $model = $this->storeUser($user_info, $token, $we_data['session_key']);
-        $model->nickname = '卓信'.$model['id'];
+        $model->nickname = '小程序用户'.$model['id'];
         $model->save();
 
         $user = app(User::class)->findUserByOpenId($user_info->openId);

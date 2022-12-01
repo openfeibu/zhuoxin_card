@@ -56,6 +56,7 @@
                             <input type="text" name="email" autocomplete="off" placeholder="请输入{{ trans('app.email') }}" class="layui-input" >
                         </div>
                     </div>
+                    <!--
                     <div class="layui-form-item">
                         <label class="layui-form-label">{{ trans('app.address') }}</label>
                         <div class="layui-input-inline">
@@ -68,6 +69,8 @@
                             <input type="text" name="en_address" autocomplete="off" placeholder="请输入英文{{ trans('app.address') }}" class="layui-input" >
                         </div>
                     </div>
+
+                    -->
                     <div class="layui-form-item">
                         <label class="layui-form-label">{{ trans('app.intro') }}</label>
                         <div class="layui-input-inline">
