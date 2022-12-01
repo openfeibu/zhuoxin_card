@@ -72,6 +72,11 @@ class EmployeeController extends BaseController
         $employee['address'] = $employee['address'] ?: setting('address');
         $employee['en_address'] = $employee['en_address'] ?: setting('en_address');
 
+        $need_replace = ['education','en_education','field','en_field','employment_record','en_employment_record','language','en_language','work_experience','en_work_experience','social_duties_honors','en_social_duties_honors','professional_book','en_professional_book'];
+        foreach ($need_replace as $item){
+            $employee[$item] = replace_line_to_br($employee[$item]);
+        }
+
         return $this->response->success()->data($employee->toArray())->json();
     }
     public function jobCategories(Request $request)

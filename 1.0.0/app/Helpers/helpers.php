@@ -958,3 +958,9 @@ function default_avatar(): string
 {
     return 'https://apizhuoxincard.feibu.info/images/avatar.png';
 }
+function replace_line_to_br($str)
+{
+    $order=array("\r\n","\n","\r");
+    $replace='<br/>';
+    return str_replace($order,$replace,$str);
+}
