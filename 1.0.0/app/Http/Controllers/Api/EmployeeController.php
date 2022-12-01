@@ -66,9 +66,9 @@ class EmployeeController extends BaseController
         $employee['wechat_qrcode'] = handle_image_url($employee['wechat_qrcode']);
         $employee['card_qrcode'] = handle_image_url($employee['card_qrcode']);
 
-        $employee['phone_number'] = $employee['phone_number'] ?: setting('phone_number');
-        $employee['tel'] = $employee['tel'] ?: setting('tel');
-        $employee['email'] = $employee['email'] ?: setting('email');
+//        $employee['phone_number'] = $employee['phone_number'] ?: setting('phone_number');
+//        $employee['tel'] = $employee['tel'] ?: setting('tel');
+//        $employee['email'] = $employee['email'] ?: setting('email');
         $employee['address'] = $employee['address'] ?: setting('address');
         $employee['en_address'] = $employee['en_address'] ?: setting('en_address');
 
