@@ -20,7 +20,7 @@
                         <div class="layui-input-block">
                             <?php $i=1 ?>
                             @foreach($jobs as $key => $job)
-                                <input type="checkbox" name="jobs[]" value="{{ $job->id }}" title="{{ $job->name }}" @if($i == 1) checked @endif >
+                                <input type="checkbox" name="jobs[]" value="{{ $job->id }}" title="{{ $job->name }}" >
                                 <?php $i++ ?>
                             @endforeach
                         </div>
