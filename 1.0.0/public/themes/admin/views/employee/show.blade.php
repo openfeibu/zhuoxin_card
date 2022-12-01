@@ -71,13 +71,13 @@
                     <div class="layui-form-item">
                         <label class="layui-form-label">{{ trans('app.intro') }}</label>
                         <div class="layui-input-inline">
-                            <textarea name="intro"  placeholder="请输入{{  trans('employee.label.intro') }}"  class="layui-textarea">{{ $employee['intro'] }}</textarea>
+                            <textarea name="intro"  placeholder="请输入{{  trans('app.intro') }}"  class="layui-textarea">{{ $employee['intro'] }}</textarea>
                         </div>
                     </div>
                     <div class="layui-form-item">
                         <label class="layui-form-label">英文{{ trans('app.intro') }}</label>
                         <div class="layui-input-inline">
-                            <textarea name="en_intro"  placeholder="请输入英文{{  trans('employee.label.intro') }}"  class="layui-textarea">{{ $employee['en_intro'] }}</textarea>
+                            <textarea name="en_intro"  placeholder="请输入英文{{  trans('app.intro') }}"  class="layui-textarea">{{ $employee['en_intro'] }}</textarea>
                         </div>
                     </div>
                     <div class="layui-form-item">
