@@ -53,11 +53,11 @@ class User extends AuthModel
         return self::$user;
     }
 
-    public static function tokenAuth($custom = ['*'])
+    public static function tokenAuth($force=true,$custom = ['*'])
     {
         $token = Request::input('token','');
         self::$user = $user = self::where('token', $token)->first($custom);
-        if (!$user) {
+        if (!$user && $force) {
             throw new UnauthorizedHttpException('jwt-auth', 'token过期请重新登陆');
         }
         return $user;

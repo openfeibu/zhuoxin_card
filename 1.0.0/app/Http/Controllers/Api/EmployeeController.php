@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\User;
 use App\Repositories\Eloquent\EmployeeRepository;
 use App\Repositories\Eloquent\JobCategoryRepository;
 use Illuminate\Http\Request;
@@ -76,7 +77,8 @@ class EmployeeController extends BaseController
         foreach ($need_replace as $item){
             $employee[$item] = replace_line_to_br($employee[$item]);
         }
-
+        $user =  User::tokenAuth(false);
+        page_view(config('model.job.employee.model'), $id,$user ? $user['id'] : 0);
         return $this->response->success()->data($employee->toArray())->json();
     }
     public function jobCategories(Request $request)

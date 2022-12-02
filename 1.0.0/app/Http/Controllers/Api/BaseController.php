@@ -12,6 +12,7 @@ class BaseController extends Controller
 {
     use Helpers;
 
+
     public function __construct()
     {
         set_route_guard('api','user','user');

@@ -43,4 +43,12 @@ class Employee extends BaseModel
     {
         return (!$this->jobs) ? $this->jobs = $this->jobs()->get() : $this->jobs;
     }
+    /**
+     * 获得此文章的所有评论。
+     */
+    public function page_views()
+    {
+        return $this->morphMany(config('model.page_view.page_view.model'), 'pageable');
+    }
+
 }

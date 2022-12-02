@@ -8,48 +8,60 @@
                     <div class="layui-col-sm6 layui-col-md3">
                         <div class="layui-card">
                             <div class="layui-card-header">
-                                <b>公告总数</b>
-                                <label>(条)</label>
-                                <span class="layui-badge layui-bg-blue layuiadmin-badge">总</span>
+                                <b>今日用户总数</b>
+                                <label>(个)</label>
+                                <span class="layui-badge layui-bg-blue layuiadmin-badge">日</span>
                             </div>
                             <div class="layui-card-body layuiadmin-card-list">
-                                <p class="layuiadmin-big-font">1</p>
+                                <p class="layuiadmin-big-font">{{ $today_user_count }}</p>
                             </div>
                         </div>
                     </div>
                     <div class="layui-col-sm6 layui-col-md3">
                         <div class="layui-card">
                             <div class="layui-card-header">
-                                <b>公告总数</b>
-                                <label>(条)</label>
+                                <b>用户总数</b>
+                                <label>(个)</label>
                                 <span class="layui-badge layui-bg-blue layuiadmin-badge">总</span>
                             </div>
                             <div class="layui-card-body layuiadmin-card-list">
-                                <p class="layuiadmin-big-font">1</p>
+                                <p class="layuiadmin-big-font">{{ $user_count }}</p>
                             </div>
                         </div>
                     </div>
                     <div class="layui-col-sm6 layui-col-md3">
                         <div class="layui-card">
                             <div class="layui-card-header">
-                                <b>公告总数</b>
+                                <b>律师名片数</b>
                                 <label>(条)</label>
                                 <span class="layui-badge layui-bg-blue layuiadmin-badge">总</span>
                             </div>
                             <div class="layui-card-body layuiadmin-card-list">
-                                <p class="layuiadmin-big-font">1</p>
+                                <p class="layuiadmin-big-font">{{ $employee_count }}</p>
                             </div>
                         </div>
                     </div>
                     <div class="layui-col-sm6 layui-col-md3">
                         <div class="layui-card">
                             <div class="layui-card-header">
-                                <b>公告总数</b>
+                                <b>今日名片浏览量</b>
+                                <label>(条)</label>
+                                <span class="layui-badge layui-bg-blue layuiadmin-badge">日</span>
+                            </div>
+                            <div class="layui-card-body layuiadmin-card-list">
+                                <p class="layuiadmin-big-font">{{ $today_employee_view_count }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-col-sm6 layui-col-md3">
+                        <div class="layui-card">
+                            <div class="layui-card-header">
+                                <b>名片总浏览量</b>
                                 <label>(条)</label>
                                 <span class="layui-badge layui-bg-blue layuiadmin-badge">总</span>
                             </div>
                             <div class="layui-card-body layuiadmin-card-list">
-                                <p class="layuiadmin-big-font">1</p>
+                                <p class="layuiadmin-big-font">{{ $employee_view_count }}</p>
                             </div>
                         </div>
                     </div>

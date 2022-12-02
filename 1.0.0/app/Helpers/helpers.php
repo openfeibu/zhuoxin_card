@@ -964,3 +964,11 @@ function replace_line_to_br($str)
     $replace='<br/>';
     return str_replace($order,$replace,$str);
 }
+function page_view($pageable_type, $pageable_id=0, $user_id=0)
+{
+    \App\Models\PageView::create([
+        'user_id' => $user_id,
+        'pageable_type' => $pageable_type,
+        'pageable_id' => $pageable_id,
+    ]);
+}

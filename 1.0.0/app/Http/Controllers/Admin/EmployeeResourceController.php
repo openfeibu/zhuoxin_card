@@ -76,7 +76,7 @@ class EmployeeResourceController extends BaseController
         DB::beginTransaction();
         try {
             $attributes = $request->all();
-
+            var_dump($attributes);exit;
             $employee = $this->repository->create($attributes);
             $employee->card_qrcode = $this->employeeService->generateQrCode($employee);
 
