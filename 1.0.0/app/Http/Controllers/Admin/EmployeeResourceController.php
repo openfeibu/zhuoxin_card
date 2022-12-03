@@ -44,19 +44,46 @@ class EmployeeResourceController extends BaseController
     public function index(Request $request)
     {
         $limit = $request->input('limit',config('app.limit'));
+        $search = $request->get('search',[]);
         if ($this->response->typeIs('json')) {
-            $data = $this->repository
+            $data = $this->repository->join('job_categories','employees.job_category_id','=','job_categories.id')
+                ->when($search ,function ($query) use ($search){
+                    foreach($search as $field => $value)
+                    {
+                        if($value)
+                        {
+                            if($field == 'job_category_id')
+                            {
+                                $query->where(function ($query) use ($value){
+                                    $ids = $this->jobCategoryRepository->getSubIds($value);
+                                    array_unshift($ids,$value);
+                                    $query->whereIn('job_category_id',$ids);
+                                });
+                            }else{
+
+                                $query->where('employees.'.$field,'like','%'.$value.'%');
+
+                            }
+                        }
+                    }
+                })
                 ->orderBy('order','asc')
                 ->orderBy('id','desc')
-                ->paginate($limit);
+                ->paginate($limit,['employees.*','job_categories.name as job_category_name']);
+            foreach ($data as $item)
+            {
+                $item->job_names = $item->jobs()->pluck('name');
+            }
             return $this->response
                 ->success()
                 ->count($data->total())
                 ->data($data->toArray()['data'])
                 ->output();
         }
+        $jobs = $this->jobRepository->getALL();
         return $this->response->title(trans('employee.name'))
             ->view('employee.index')
+            ->data(compact('jobs'))
             ->output();
     }
     public function create(Request $request)

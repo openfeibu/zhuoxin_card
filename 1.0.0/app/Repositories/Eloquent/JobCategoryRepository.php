@@ -95,5 +95,37 @@ class JobCategoryRepository extends BaseRepository implements JobCategoryReposit
     {
         return $this->children($parent_id);
     }
+    public function getCategoriesSelectTree($parent_id=0,$check_ids=[])
+    {
 
+        $data = [];
+        $categories = $this->where('parent_id',$parent_id)->orderBy('order','desc')->orderBy('id','asc')->get();
+        foreach ($categories as $key => $category)
+        {
+            $data[$key] = [
+                'title' => $category->name,
+                'label' => $category->name,
+                'id' => $category->id,
+                'parent_id' => $category->parent_id,
+                'order' => $category->order,
+                'spread' => true,
+                'checked' => false,
+            ];
+            if(!$this->where('parent_id',$category->id)->first(['id']))
+            {
+                $data[$key]['checked'] = in_array($category->id,$check_ids);
+            }
+            $data[$key]['children'] = $this->getCategoriesSelectTree($category->id,$check_ids);
+        }
+        return $data;
+    }
+    public function getSubIds($category_id=0,$sub_ids=[]){
+        $ids = $this->where('parent_id',$category_id)->pluck('id')->toArray();
+        $sub_ids = array_merge($sub_ids,$ids);
+        foreach ($ids as $key=> $id)
+        {
+            $sub_ids = $this->getSubIds($id,$sub_ids);
+        }
+        return $sub_ids;
+    }
 }

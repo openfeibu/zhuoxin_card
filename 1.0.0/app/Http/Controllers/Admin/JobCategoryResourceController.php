@@ -213,4 +213,9 @@ class JobCategoryResourceController extends BaseController
                 ->redirect();
         }
     }
+    public function getCategoriesTree()
+    {
+        $categories = $this->repository->getCategoriesSelectTree();
+        return $categories;
+    }
 }

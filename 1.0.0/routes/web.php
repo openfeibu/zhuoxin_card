@@ -34,6 +34,7 @@ Route::group([
 
     Route::resource('job_category', 'JobCategoryResourceController');
     Route::post('/job_category/destroyAll', 'JobCategoryResourceController@destroyAll');
+    Route::get('/job_categories_tree', 'JobCategoryResourceController@getCategoriesTree');
 
     Route::resource('employee', 'EmployeeResourceController');
     Route::post('/employee/destroyAll', 'EmployeeResourceController@destroyAll');
