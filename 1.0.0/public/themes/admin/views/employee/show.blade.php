@@ -95,97 +95,98 @@
                     <div class="layui-form-item">
                         <label class="layui-form-label">{{ trans('employee.label.education') }}</label>
                         <div class="layui-input-inline">
-                            <textarea name="education"  placeholder="请输入{{  trans('employee.label.education') }}"  class="layui-textarea">{{ $employee['education'] }}</textarea>
+                            <script type="text/plain" id="education" name="education" style="width:1000px;height:240px;">{!! $employee->education !!}</script>
                         </div>
                     </div>
-
                     <div class="layui-form-item">
                         <label class="layui-form-label">英文{{ trans('employee.label.education') }}</label>
                         <div class="layui-input-inline">
-                            <textarea name="en_education"  placeholder="请输入英文{{  trans('employee.label.education') }}"  class="layui-textarea">{{ $employee['en_education'] }}</textarea>
+                            <script type="text/plain" id="en_education" name="en_education" style="width:1000px;height:240px;">{!! $employee->en_education !!}</script>
                         </div>
                     </div>
                     <div class="layui-form-item">
                         <label class="layui-form-label">{{ trans('employee.label.field') }}</label>
                         <div class="layui-input-inline">
-                            <textarea name="field"  placeholder="请输入{{  trans('employee.label.field') }}"  class="layui-textarea">{{ $employee['field'] }}</textarea>
+                            <script type="text/plain" id="field" name="field" style="width:1000px;height:240px;">{!! $employee->field !!}</script>
                         </div>
                     </div>
 
                     <div class="layui-form-item">
                         <label class="layui-form-label">英文{{ trans('employee.label.field') }}</label>
                         <div class="layui-input-inline">
-                            <textarea name="en_field"  placeholder="请输入英文{{  trans('employee.label.field') }}"  class="layui-textarea">{{ $employee['en_field'] }}</textarea>
+                            <script type="text/plain" id="en_field" name="en_field" style="width:1000px;height:240px;">{!! $employee->en_field !!}</script>
                         </div>
                     </div>
 
                     <div class="layui-form-item">
                         <label class="layui-form-label">{{ trans('employee.label.employment_record') }}</label>
                         <div class="layui-input-inline">
-                            <textarea name="employment_record"  placeholder="请输入{{  trans('employee.label.employment_record') }}"  class="layui-textarea">{{ $employee['employment_record'] }}</textarea>
+                            <script type="text/plain" id="employment_record" name="employment_record" style="width:1000px;height:240px;">{!! $employee->employment_record !!}</script>
                         </div>
                     </div>
 
                     <div class="layui-form-item">
                         <label class="layui-form-label">英文{{ trans('employee.label.employment_record') }}</label>
                         <div class="layui-input-inline">
-                            <textarea name="en_employment_record"  placeholder="请输入英文{{  trans('employee.label.employment_record') }}"  class="layui-textarea">{{ $employee['en_employment_record'] }}</textarea>
+                            <script type="text/plain" id="en_employment_record" name="en_employment_record" style="width:1000px;height:240px;">
+                                {!! $employee->en_employment_record !!}
+                            </script>
                         </div>
                     </div>
 
                     <div class="layui-form-item">
                         <label class="layui-form-label">{{ trans('employee.label.language') }}</label>
                         <div class="layui-input-inline">
-                            <textarea name="language"  placeholder="请输入{{  trans('employee.label.language') }}"  class="layui-textarea">{{ $employee['language'] }}</textarea>
+                            <script type="text/plain" id="language" name="language" style="width:1000px;height:240px;">{!! $employee->language !!}</script>
                         </div>
                     </div>
 
                     <div class="layui-form-item">
                         <label class="layui-form-label">英文{{ trans('employee.label.language') }}</label>
                         <div class="layui-input-inline">
-                            <textarea name="en_language"  placeholder="请输入英文{{  trans('employee.label.language') }}"  class="layui-textarea">{{ $employee['en_language'] }}</textarea>
+                            <script type="text/plain" id="en_language" name="en_language" style="width:1000px;height:240px;">{!! $employee->en_language !!}</script>
                         </div>
                     </div>
 
                     <div class="layui-form-item">
                         <label class="layui-form-label">{{ trans('employee.label.work_experience') }}</label>
                         <div class="layui-input-inline">
-                            <textarea name="work_experience"  placeholder="请输入{{  trans('employee.label.work_experience') }}"  class="layui-textarea">{{ $employee['work_experience'] }}</textarea>
+                            <script type="text/plain" id="work_experience" name="work_experience" style="width:1000px;height:240px;">{!! $employee->work_experience !!}</script>
                         </div>
                     </div>
 
                     <div class="layui-form-item">
                         <label class="layui-form-label">英文{{ trans('employee.label.work_experience') }}</label>
                         <div class="layui-input-inline">
-                            <textarea name="en_work_experience"  placeholder="请输入英文{{  trans('employee.label.work_experience') }}"  class="layui-textarea">{{ $employee['en_work_experience'] }}</textarea>
+                            <script type="text/plain" id="en_work_experience" name="en_work_experience" style="width:1000px;height:240px;">{!! $employee->en_work_experience !!}</script>
                         </div>
                     </div>
 
                     <div class="layui-form-item">
                         <label class="layui-form-label">{{ trans('employee.label.social_duties_honors') }}</label>
                         <div class="layui-input-inline">
-                            <textarea name="social_duties_honors"  placeholder="请输入{{  trans('employee.label.social_duties_honors') }}"  class="layui-textarea">{{ $employee['social_duties_honors'] }}</textarea>
+                            <script type="text/plain" id="social_duties_honors" name="social_duties_honors" style="width:1000px;height:240px;">{!! $employee->social_duties_honors !!}</script>
                         </div>
                     </div>
 
                     <div class="layui-form-item">
                         <label class="layui-form-label">英文{{ trans('employee.label.social_duties_honors') }}</label>
                         <div class="layui-input-inline">
-                            <textarea name="en_social_duties_honors"  placeholder="请输入英文{{  trans('employee.label.social_duties_honors') }}"  class="layui-textarea">{{ $employee['en_social_duties_honors'] }}</textarea>
+                            <script type="text/plain" id="en_social_duties_honors" name="en_social_duties_honors" style="width:1000px;height:240px;">{!! $employee->en_social_duties_honors !!}</script>
                         </div>
                     </div>
 
                     <div class="layui-form-item">
                         <label class="layui-form-label">{{ trans('employee.label.professional_book') }}</label>
                         <div class="layui-input-inline">
-                            <textarea name="professional_book"  placeholder="请输入{{  trans('employee.label.professional_book') }}"  class="layui-textarea">{{ $employee['professional_book'] }}</textarea>
+                            <script type="text/plain" id="professional_book" name="professional_book" style="width:1000px;height:240px;">{!! $employee->professional_book !!}</script>
                         </div>
                     </div>
 
                     <div class="layui-form-item">
                         <label class="layui-form-label">英文{{ trans('employee.label.professional_book') }}</label>
                         <div class="layui-input-inline">
-                            <textarea name="en_professional_book"  placeholder="请输入英文{{  trans('employee.label.professional_book') }}"  class="layui-textarea">{{ $employee['en_professional_book'] }}</textarea>
+                            <script type="text/plain" id="en_professional_book" name="en_professional_book" style="width:1000px;height:240px;">{!! $employee->en_professional_book !!}</script>
                         </div>
                     </div>
 
@@ -205,3 +206,70 @@
         </div>
     </div>
 </div>
+{!! Theme::asset()->container('ueditor')->scripts() !!}
+<script>
+    var toolbars = [
+        [
+            'source', //源代码
+            'anchor', //锚点
+            'undo', //撤销
+            'redo', //重做
+            'bold', //加粗
+            'indent', //首行缩进
+            'italic', //斜体
+            'underline', //下划线
+            'strikethrough', //删除线
+            'subscript', //下标
+            'fontborder', //字符边框
+            'superscript', //上标
+            'formatmatch', //格式刷
+            'blockquote', //引用
+            'pasteplain', //纯文本粘贴模式
+            'selectall', //全选
+            'horizontal', //分隔线
+            'removeformat', //清除格式
+            'unlink', //取消链接
+            'splittorows', //拆分成行
+            'splittocols', //拆分成列
+            'splittocells', //完全拆分单元格
+            'deletecaption', //删除表格标题
+            'inserttitle', //插入标题
+            'mergecells', //合并多个单元格
+            'deletetable', //删除表格
+            'cleardoc', //清空文档
+            'insertparagraphbeforetable', //"表格前插入行"
+            // 'fontfamily', //字体
+            // 'fontsize', //字号
+            //'paragraph', //段落格式
+            'edittable', //表格属性
+            'edittd', //单元格属性
+            'justifyleft', //居左对齐
+            'justifyright', //居右对齐
+            'justifycenter', //居中对齐
+            'justifyjustify', //两端对齐
+            // 'forecolor', //字体颜色
+            // 'backcolor', //背景色
+            'insertorderedlist', //有序列表
+            'insertunorderedlist', //无序列表
+            'fullscreen', //全屏
+            'directionalityltr', //从左向右输入
+            'directionalityrtl', //从右向左输入
+            'imagenone', //默认
+            // 'imageleft', //左浮动
+            // 'imageright', //右浮动
+            // 'imagecenter', //居中
+            'lineheight', //行间距
+            'edittip ', //编辑提示
+            //'customstyle', //自定义标题
+            'autotypeset', //自动排版
+            'touppercase', //字母大写
+            'tolowercase', //字母小写
+            'inserttable', //插入表格
+        ]
+    ];
+    <?php $arr= ['education','field','employment_record','language','work_experience','social_duties_honors','professional_book'];?>
+    @foreach($arr as $item)
+    var ue_{{ $item }} = getUeCopy("{{ $item }}",toolbars);
+    var ue_en_{{ $item }} = getUeCopy("en_{{ $item }}",toolbars);
+    @endforeach
+</script>

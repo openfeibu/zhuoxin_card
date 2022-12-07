@@ -76,9 +76,10 @@ function getUe() {
 	});
 	// body...
 }
-function getUeCopy(id) {
-	return ue_copy = UE.getEditor(id,{
-		toolbars: [
+function getUeCopy(id,toolbars=null) {
+	if(!toolbars)
+	{
+		var toolbars = [
 			[
 				'source', //源代码
 				'anchor', //锚点
@@ -149,7 +150,10 @@ function getUeCopy(id) {
 				'background', //背景
 				'inserttable', //插入表格
 			]
-		]
+		];
+	}
+	return ue_copy = UE.getEditor(id,{
+		toolbars:toolbars
 
 	});
 	// body...
