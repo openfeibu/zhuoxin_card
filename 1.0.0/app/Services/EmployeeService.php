@@ -65,7 +65,7 @@ class EmployeeService{
         }
 
         if ($response instanceof \EasyWeChat\Kernel\Http\StreamResponse) {
-            $filename = $response->save(storage_path('uploads').$directory);
+            $filename = $response->save(storage_path('uploads').$directory,md5($employee['id']).'.png');
             return '/'.$this->file_folder.'/'.$employee['id'].'/'.$filename;
 
         }else{
