@@ -43,36 +43,36 @@ class EmployeeService{
       */
 
     public function generateQrCode($employee){
-       // if(!$employee['card_qrcode']){
-            $config = [
-                'app_id' => config('wechat.mini_program.default.app_id'),
-                'secret' =>  config('wechat.mini_program.default.secret'),
 
-            ];
-            $app = Factory::miniProgram($config);
+        $config = [
+            'app_id' => config('wechat.mini_program.default.app_id'),
+            'secret' =>  config('wechat.mini_program.default.secret'),
 
-            $response = $app->app_code->getUnlimit('id='.$employee['id'], [
-                'page'  => 'pages/professionalsDetail/professionalsDetail',
-                'width' => 600,
-            ]);
+        ];
+        $app = Factory::miniProgram($config);
+
+        $response = $app->app_code->getUnlimit('id='.$employee['id'], [
+            'page'  => 'pages/professionalsDetail/professionalsDetail',
+            'width' => 600,
+        ]);
 // $response 成功时为 EasyWeChat\Kernel\Http\StreamResponse 实例，失败为数组或你指定的 API 返回类型
 
 // 保存小程序码到文件
-            $directory = DIRECTORY_SEPARATOR.$this->file_folder.DIRECTORY_SEPARATOR.$employee['id'];
+        $directory = DIRECTORY_SEPARATOR.$this->file_folder.DIRECTORY_SEPARATOR.$employee['id'];
 
-            if (!Storage::exists($directory)) {
-                Storage::makeDirectory($directory, 0755, true);
-            }
+        if (!Storage::exists($directory)) {
+            Storage::makeDirectory($directory, 0755, true);
+        }
 
-            if ($response instanceof \EasyWeChat\Kernel\Http\StreamResponse) {
-                $filename = $response->save(storage_path('uploads').$directory);
-                return '/'.$this->file_folder.'/'.$employee['id'].'/'.$filename;
+        if ($response instanceof \EasyWeChat\Kernel\Http\StreamResponse) {
+            $filename = $response->save(storage_path('uploads').$directory);
+            return '/'.$this->file_folder.'/'.$employee['id'].'/'.$filename;
 
-            }else{
-                throw new OutputServerMessageException('生成名片二维码失败！'.'errcode：'.$response['errcode'].'；errmsg:'.$response['errmsg']);
-            }
+        }else{
+            throw new OutputServerMessageException('生成名片二维码失败！'.'errcode：'.$response['errcode'].'；errmsg:'.$response['errmsg']);
+        }
 
-       // }
+
     }
 
 }

@@ -149,9 +149,12 @@ class EmployeeResourceController extends BaseController
             $attributes = $request->all();
 
             $employee->update($attributes);
-            $employee->card_qrcode = $this->employeeService->generateQrCode($employee);
+            if(!$employee['card_qrcode']){
+                $employee->card_qrcode = $this->employeeService->generateQrCode($employee);
 
-            $employee->save();
+                $employee->save();
+            }
+
 
             $jobs = $request->get('jobs');
             $employee->jobs()->sync($jobs);
