@@ -14,7 +14,7 @@ class EmployeeService{
     private $file_folder = 'qrcode';
     protected $qrcode_url = 'https://apizhuoxincard.feibu.info?type=weapp';
     protected $file;
-
+    /*
     public function generateQrCode($employee)
     {
         $directory = '/'.$this->file_folder.'/'.$employee['id'];
@@ -40,8 +40,8 @@ class EmployeeService{
         }
         return '/'.$this->file_folder.'/'.$employee['id'].'/'.$image_name;
     }
+      */
 
-    /*
     public function generateQrCode($employee){
        // if(!$employee['card_qrcode']){
             $config = [
@@ -63,8 +63,9 @@ class EmployeeService{
             if (!Storage::exists($directory)) {
                 Storage::makeDirectory($directory, 0755, true);
             }
+
             if ($response instanceof \EasyWeChat\Kernel\Http\StreamResponse) {
-                $filename = $response->save($directory);
+                $filename = $response->save(storage_path('uploads').$directory);
                 return '/'.$this->file_folder.'/'.$employee['id'].'/'.$filename;
 
             }else{
@@ -73,5 +74,5 @@ class EmployeeService{
 
        // }
     }
-    */
+
 }
